@@ -1,0 +1,21 @@
+opts = odeset('RelTol', 1e-6, 'AbsTol', 1e-6);
+[t, xODE] = ode45(@kepler, [0 2], [1 0 0 5], opts);
+x = xODE(:,1);
+y = xODE(:,3);
+
+figure;
+subplot(3,1,1);
+plot(x,y);
+xlabel('x [au]');
+ylabel('y [au]');
+title('Przetrzen fazowa');
+subplot(3,1,2);
+plot(t,x);
+title('Polozenie x');
+xlabel('t [lata]');
+ylabel('x [au]');
+subplot(3,1,3);
+plot(t,y);
+title('Polozenie y');
+xlabel('t [lata]');
+ylabel('y [au]');
